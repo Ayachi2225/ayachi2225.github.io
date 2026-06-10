@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://images.unsplash.com">
   <% if (backgroundImages[0]) { %><link rel="preload" as="image" href="<%- backgroundImages[0] %>"><% } %>
   <% if (avatarImage) { %><link rel="preload" as="image" href="<%- avatarImage %>"><% } %>
+  <link rel="icon" href="<%- url_for('/images/banner.jpg') %>">
   <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
   <style>
     :root {
