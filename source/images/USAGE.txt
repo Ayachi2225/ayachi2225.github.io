@@ -1,0 +1,10 @@
+本地图片目录
+
+把博客背景图、侧边栏图片或文章配图放在这个目录。
+
+主题配置引用示例：
+background_image: /images/background.jpg
+avatar_image: /images/avatar.jpg
+
+文章中引用示例：
+![图片说明](/images/example.jpg)

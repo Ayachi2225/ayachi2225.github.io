@@ -1,0 +1,59 @@
+menu:
+  Home: /
+  Archives: /archives/
+  Categories: /categories/
+
+
+background_image: /images/beach.png
+background_images:
+  - /images/beach.png
+  - /images/stars_sky.png
+  - /images/yurucamp_reading.png
+  - /images/amehana.png
+  - /images/understar.png
+  - /images/mama.png
+  - /images/odoroku.png
+background_interval: 10000
+background_fade_duration: 1500
+avatar_image: /images/banner.jpg
+background_overlay: 0
+background_blur: 0
+sidebar_opacity: 0.1
+profile_opacity: 0.1
+home_panel_opacity: 0.1
+article_opacity: 0.6
+toc_opacity: 0.6
+panel_blur: 0
+panel_shadow_opacity: 0.08
+home_title_size: clamp(15px, 2vw, 36px)
+home_subtitle_size: 15px
+article_title_size: clamp(20px, 4vw, 36px)
+post_card_title_size: clamp(22px, 3vw, 30px)
+border_radius: 25px
+border_radius_small: 15px
+
+home:
+  eyebrow: About me
+  intro:
+    - 'Have a nice day'
+  social_links:
+    - name: GitHub
+      url: https://github.com/Ayachi2225
+    - name: email
+      url: mailto:1728353049@qq.com
+  languages:
+    - name: TypeScript
+      level: AI精通
+    - name: Python
+      level: AI精通
+    - name: latex
+      level: AI精通
+    - name: C++
+      level: AI精通
+    - name: matlab
+      level: AI精通
+    - name: 其他
+      level: AI精通
+
+accent_color: "#2563eb"
+show_toc: true

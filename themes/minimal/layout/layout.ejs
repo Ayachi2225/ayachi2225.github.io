@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="<%= config.language || 'zh-CN' %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><% if (page.title) { %><%= page.title %> | <% } %><%= config.title %></title>
+  <% if (config.description) { %><meta name="description" content="<%= config.description %>"><% } %>
+  <%
+    const rawBackgroundImages = theme.background_images && theme.background_images.length
+      ? theme.background_images
+      : [theme.background_image].filter(Boolean);
+    const backgroundImages = rawBackgroundImages.map(function(image) {
+      return url_for(image);
+    });
+    const avatarImage = theme.avatar_image || theme.sidebar_image
+      ? url_for(theme.avatar_image || theme.sidebar_image)
+      : '';
+  %>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <% if (backgroundImages[0]) { %><link rel="preload" as="image" href="<%- backgroundImages[0] %>"><% } %>
+  <% if (avatarImage) { %><link rel="preload" as="image" href="<%- avatarImage %>"><% } %>
+  <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
+  <style>
+    :root {
+      --accent: <%= theme.accent_color || '#2563eb' %>;
+      --site-bg-image: url("<%- backgroundImages[0] || '' %>");
+      --site-bg-next-image: url("<%- backgroundImages[0] || '' %>");
+      --site-bg-next-opacity: 0;
+      --bg-fade-duration: <%= theme.background_fade_duration == null ? 1500 : theme.background_fade_duration %>ms;
+      --avatar-image: url("<%- avatarImage %>");
+      --bg-overlay: <%= theme.background_overlay == null ? 0.24 : theme.background_overlay %>;
+      --bg-blur: <%= theme.background_blur == null ? 0 : theme.background_blur %>px;
+      --sidebar-opacity: <%= theme.sidebar_opacity == null ? 0.86 : theme.sidebar_opacity %>;
+      --profile-opacity: <%= theme.profile_opacity == null ? 0.72 : theme.profile_opacity %>;
+      --home-panel-opacity: <%= theme.home_panel_opacity == null ? 0.86 : theme.home_panel_opacity %>;
+      --article-opacity: <%= theme.article_opacity == null ? 0.9 : theme.article_opacity %>;
+      --toc-opacity: <%= theme.toc_opacity == null ? 0.82 : theme.toc_opacity %>;
+      --panel-blur: <%= theme.panel_blur == null ? 16 : theme.panel_blur %>px;
+      --panel-shadow-opacity: <%= theme.panel_shadow_opacity == null ? 0.24 : theme.panel_shadow_opacity %>;
+      --home-title-size: <%= theme.home_title_size || 'clamp(30px, 4vw, 48px)' %>;
+      --home-subtitle-size: <%= theme.home_subtitle_size || '15px' %>;
+      --article-title-size: <%= theme.article_title_size || 'clamp(30px, 5vw, 52px)' %>;
+      --post-card-title-size: <%= theme.post_card_title_size || 'clamp(22px, 3vw, 30px)' %>;
+      --radius: <%= theme.border_radius || '18px' %>;
+      --radius-sm: <%= theme.border_radius_small || '12px' %>;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-bg" aria-hidden="true"></div>
+  <div class="site-shell">
+    <%- partial('_partial/sidebar') %>
+    <main class="site-main">
+      <%- body %>
+    </main>
+  </div>
+  <script>
+    window.__BLOG_BACKGROUND_IMAGES__ = <%- JSON.stringify(backgroundImages || []) %>;
+    window.__BLOG_BACKGROUND_INTERVAL__ = <%= theme.background_interval == null ? 60000 : theme.background_interval %>;
+    window.__BLOG_BACKGROUND_FADE_DURATION__ = <%= theme.background_fade_duration == null ? 1500 : theme.background_fade_duration %>;
+  </script>
+  <script src="<%- url_for('/js/main.js') %>"></script>
+</body>
+</html>

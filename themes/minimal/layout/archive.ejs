@@ -1,0 +1,13 @@
+<section class="page-heading">
+  <p class="eyebrow">Archive</p>
+  <h1>归档</h1>
+</section>
+
+<section class="archive-list">
+  <% page.posts.each(function(post) { %>
+    <a class="archive-item" href="<%- url_for(post.path) %>">
+      <%- partial('_partial/post-time', { item: post }) %>
+      <span><%= post.title %></span>
+    </a>
+  <% }) %>
+</section>
