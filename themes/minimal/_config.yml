@@ -4,18 +4,18 @@ menu:
   Categories: /categories/
 
 
-background_image: /images/beach.png
+background_image: /images/beach.webp
 background_images:
-  - /images/beach.png
-  - /images/stars_sky.png
-  - /images/yurucamp_reading.png
-  - /images/amehana.png
-  - /images/understar.png
-  - /images/mama.png
-  - /images/odoroku.png
+  - /images/beach.webp
+  - /images/stars_sky.webp
+  - /images/yurucamp_reading.webp
+  - /images/amehana.webp
+  - /images/understar.webp
+  - /images/mama.webp
+  - /images/odoroku.webp
 background_interval: 10000
 background_fade_duration: 1500
-avatar_image: /images/banner.jpg
+avatar_image: /images/banner.webp
 background_overlay: 0
 background_blur: 0
 sidebar_opacity: 0.1
